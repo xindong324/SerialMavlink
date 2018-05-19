@@ -1,0 +1,315 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (中国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\COMTOOL.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\COMTOOL.ico"
+IDI_ICON_OFF            ICON    DISCARDABLE     "res\\ICON_NOT.ICO"
+IDI_ICON_ON             ICON    DISCARDABLE     "res\\ICON_ON.ICO"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 214, 108
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于串口工具"
+FONT 10, "宋体"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,12,16,20,20
+    LTEXT           "串口工具 1.0 版",IDC_STATIC,40,14,59,8,SS_NOPREFIX
+    LTEXT           "版权所有 (C) 2014",IDC_STATIC,40,26,71,8
+    DEFPUSHBUTTON   "确定",IDOK,145,15,50,20,WS_GROUP
+    LTEXT           "若有任何BUG，请及时通知作者，以便修改\nBlog：blog.csdn.net/itas109\nEmail:itas109@qq.com",
+                    IDC_STATIC,40,67,155,27
+    LTEXT           "本软件免费试用 永不过期\n版权所有，未经许可，不得用于商用\n网站用作下载程序，请通知作者，以便及时更新",
+                    IDC_STATIC,40,37,162,29
+END
+
+IDD_COMTOOL_DIALOG DIALOGEX 0, 0, 384, 311
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "串口工具v1.0 By itas109 For XP"
+FONT 9, "宋体"
+BEGIN
+    GROUPBOX        "串口设置",IDC_STATIC,2,5,109,150
+    EDITTEXT        IDC_SendEdit,125,224,244,50,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_OEMCONVERT,WS_EX_DLGMODALFRAME
+    EDITTEXT        IDC_ReceiveEdit,116,10,261,204,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | WS_VSCROLL | NOT WS_TABSTOP,
+                    WS_EX_DLGMODALFRAME
+    PUSHBUTTON      "退出",IDC_QUIT,329,285,40,20
+    CONTROL         "HEX发送",IDC_BHexS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,5,235,42,15
+    PUSHBUTTON      "清空重填",IDC_ClearS,8,219,44,15
+    PUSHBUTTON      "手工发送",IDC_Send,57,236,42,13
+    CONTROL         "HEX显示",IDC_BHexR,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,5,189,43,13
+    PUSHBUTTON      "清空接收区",IDC_ClearR,5,170,53,15
+    CONTROL         "自动发送（周期改变后重选）",IDC_BAutoSend,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,5,251,115,15
+    LTEXT           "发送周期",IDC_STATIC,9,270,33,11
+    EDITTEXT        IDC_SendPeriod,44,268,37,13,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "毫秒",IDC_STATIC,89,270,18,9
+    RTEXT           "串  口：",IDC_STATIC,7,19,40,9
+    RTEXT           "波特率：",IDC_STATIC,7,36,40,9
+    RTEXT           "数据位：",IDC_STATIC,7,52,40,9
+    RTEXT           "校验位：",IDC_STATIC,7,69,40,9
+    RTEXT           "停止位：",IDC_STATIC,7,86,40,9
+    PUSHBUTTON      "打开串口",IDC_OpenClose,55,134,50,17
+    COMBOBOX        IDC_COM,47,17,58,77,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_Baudrate,47,33,58,76,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_DataBits,47,50,58,71,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_ParityBits,47,67,58,73,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_StopBits,47,85,58,72,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    CTEXT           "TX:0",IDC_SendBytes,120,288,40,16,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+    CTEXT           "RX:0",IDC_ReceiveBytes,168,288,40,16,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "清除计数",IDC_ClearCounter,211,285,38,19
+    CONTROL         "Static",IDC_Description,"Static",SS_LEFTNOWORDWRAP | 
+                    SS_CENTERIMAGE | SS_SUNKEN | WS_GROUP,4,290,102,13
+    ICON            IDI_ICON_OFF,IDC_ICON_S,13,132,20,20
+    PUSHBUTTON      "刷新串口",IDC_BUTTON_REFRESH,54,109,50,18
+    CONTROL         "自动清空",IDC_CHECK_AUTOCLEAR,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,60,189,44,14
+    PUSHBUTTON      "停止显示",IDC_BUTTON_STOPDISP,62,171,45,15
+    CONTROL         "保存配置",IDC_SAVE_CONFIGURE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,115,45,10
+    PUSHBUTTON      "关 于",IDC_BUTTON_ABOUT,288,285,38,20
+    PUSHBUTTON      "↓",IDC_BUTTON_SEND_KEY,100,236,8,13
+    CONTROL         "字符加发回车",IDC_CHECK_ADD_ENTER,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,58,222,61,12
+    GROUPBOX        "接收区",IDC_STATIC,2,159,109,46
+    GROUPBOX        "发送区",IDC_STATIC,2,210,120,75
+    PUSHBUTTON      "帮助",IDC_BUTTON_HELP,253,285,32,20
+END
+
+IDD_DIALOG_HELP DIALOG DISCARDABLE  0, 0, 283, 318
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "帮助"
+FONT 10, "System"
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,226,297,50,14
+    LTEXT           "\t\t串口工具v1.0 帮助文档\n本串口工具集成目前多数串口工具的优秀功能于一身，采用CSerialPort类进行编写，并在此基础上对该类进行了改进。本工具免费试用，永不过期。并且本着奉献的精神，公开本串口工具的源代码，希望广大用户反馈意见或建议。\n博客地址：blog.csdn.net/itas109\nEmail:itas109@qq.com\n",
+                    IDC_STATIC,8,4,269,57
+    LTEXT           "本软件主要在XP系统做测试使用。\n本工具的主要功能有：\n1.接收从串口进来的数据并在窗口显示.\n2.所接收到的数据数据显示方式可以选择为字符或者HEX\n3.支持显示中文\n4.串口波特率可以选择为300bps-115200bps.\n5.可以即时刷新存在的串口号.如果您增加了usb转串口等设备,点击刷新串口按钮后，新的串口号也会在列表中出现.\n6.支持最多20个串口列表，包括COM1-COM256中的任意20个活跃串口\n",
+                    IDC_STATIC,7,62,269,73
+    LTEXT           "11.可以在字符串输入框输入您想发送的字符串，并发送.\n12.可以在字符串输入框输入您想发送的HEX数据串，数据的值从00到FF，没有任何限制.\n13.可以定时重复发送数据，并可以设置发送时间间隔.\n14.可以在发送字符串时选择发送新行，即自动加上回车换行.\n15.可以即时显示发送的字节数和接收到的字节数，按清除窗口将会清零.\n16、可以设置自动清空功能，在达到30行数据时，自动清空。未设置时，达到100行，自动清空.\n",
+                    IDC_STATIC,7,177,268,65
+    LTEXT           "17、在手动发送旁边的按钮可以设置按ENTER发送数据，注意点击其他控件后后，请使焦点离开.\n另外要说明的是，由于本人编程能力有效，未免可能有些差错，在此先声明一下，您可以免费使用和自由传播本软件，但是我不对本软件所造成的任何损失负责！如果你使用了本软件，即表明您愿意接收这一条款。如果你不能接受，请立即将其删除！\n",
+                    IDC_STATIC,7,243,269,49
+    LTEXT           "7.可以选择5、6、7、8四种数据长度.\n8.可以选择为1、2两种停止位.\n9.数据可以选择为无、奇校验、偶校验、1、0四种方式.\n10.串口设置和字符串操作等设置在程序关闭时自动保存，打开时自动载入.您可以自行设置是否自动保存.\n",
+                    IDC_STATIC,7,135,269,42
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "COMTOOL Microsoft 基础类应用程序\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "COMTOOL\0"
+            VALUE "LegalCopyright", "版权所有 (C) 2014\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "COMTOOL.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "COMTOOL 应用程序\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 207
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 101
+    END
+
+    IDD_COMTOOL_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 377
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 307
+    END
+
+    IDD_DIALOG_HELP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 276
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 311
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU MENU DISCARDABLE 
+BEGIN
+    MENUITEM "NONE",                        65535
+    MENUITEM "关于",                        IDC_MENU_ABOUT
+END
+
+IDR_MENU_SENDKEY MENU DISCARDABLE 
+BEGIN
+    POPUP "SendKey"
+    BEGIN
+        MENUITEM "无",                          ID_MENU_SEND_NORMAL
+        MENUITEM "ENTER发送",                   ID_MENU_SEND_ENTER
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "关于 COMTOOL(&A)..."
+END
+
+#endif    // Chinese (中国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\COMTOOL.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

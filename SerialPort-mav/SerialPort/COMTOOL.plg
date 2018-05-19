@@ -1,0 +1,113 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: COMTOOL - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Release/COMTOOL.res" /d "NDEBUG" /d "_AFXDLL" "F:\串口\chuankou\COMTOOL.rc"" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP197.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Release/" /Fp"Release/COMTOOL.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\串口\chuankou\COMTOOL.cpp"
+"F:\串口\chuankou\COMTOOLDlg.cpp"
+"F:\串口\chuankou\MyHelpDlg.cpp"
+"F:\串口\chuankou\SerialPort.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP197.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP198.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Release/" /Fp"Release/COMTOOL.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\串口\chuankou\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP198.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP199.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:no /pdb:"Release/COMTOOL.pdb" /machine:I386 /out:"Release/COMTOOL.exe" 
+".\Release\COMTOOL.obj"
+".\Release\COMTOOLDlg.obj"
+".\Release\MyHelpDlg.obj"
+".\Release\SerialPort.obj"
+".\Release\StdAfx.obj"
+".\Release\COMTOOL.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP199.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+COMTOOL.cpp
+COMTOOLDlg.cpp
+F:\串口\chuankou\COMTOOLDlg.cpp(300) : warning C4800: 'unsigned int' : forcing value to bool 'true' or 'false' (performance warning)
+MyHelpDlg.cpp
+SerialPort.cpp
+F:\串口\chuankou\SerialPort.cpp(599) : warning C4018: '!=' : signed/unsigned mismatch
+F:\串口\chuankou\SerialPort.cpp(876) : warning C4018: '<' : signed/unsigned mismatch
+Generating Code...
+Linking...
+Creating command line "bscmake.exe /nologo /o"Release/COMTOOL.bsc"  ".\Release\StdAfx.sbr" ".\Release\COMTOOL.sbr" ".\Release\COMTOOLDlg.sbr" ".\Release\MyHelpDlg.sbr" ".\Release\SerialPort.sbr""
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+COMTOOL.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: COMTOOL - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/COMTOOL.res" /d "_DEBUG" /d "_AFXDLL" "F:\串口\chuankou\COMTOOL.rc"" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP19B.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/COMTOOL.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\串口\chuankou\COMTOOL.cpp"
+"F:\串口\chuankou\COMTOOLDlg.cpp"
+"F:\串口\chuankou\MyHelpDlg.cpp"
+"F:\串口\chuankou\SerialPort.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP19B.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP19C.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/COMTOOL.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\串口\chuankou\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP19C.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP19D.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/COMTOOL.pdb" /debug /machine:I386 /out:"Debug/COMTOOL.exe" /pdbtype:sept 
+".\Debug\COMTOOL.obj"
+".\Debug\COMTOOLDlg.obj"
+".\Debug\MyHelpDlg.obj"
+".\Debug\SerialPort.obj"
+".\Debug\StdAfx.obj"
+".\Debug\COMTOOL.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP19D.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+COMTOOL.cpp
+COMTOOLDlg.cpp
+F:\串口\chuankou\COMTOOLDlg.cpp(300) : warning C4800: 'unsigned int' : forcing value to bool 'true' or 'false' (performance warning)
+MyHelpDlg.cpp
+SerialPort.cpp
+F:\串口\chuankou\SerialPort.cpp(599) : warning C4018: '!=' : signed/unsigned mismatch
+F:\串口\chuankou\SerialPort.cpp(876) : warning C4018: '<' : signed/unsigned mismatch
+Generating Code...
+Linking...
+Creating command line "bscmake.exe /nologo /o"Debug/COMTOOL.bsc"  ".\Debug\StdAfx.sbr" ".\Debug\COMTOOL.sbr" ".\Debug\COMTOOLDlg.sbr" ".\Debug\MyHelpDlg.sbr" ".\Debug\SerialPort.sbr""
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+COMTOOL.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

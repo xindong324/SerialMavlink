@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName />
+    <SccLocalPath />
+    <Keyword>MFCProj</Keyword>
+    <ProjectGuid>{4CFE6AF7-AFF7-477C-9617-7BD0A62B6DA6}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\Debug\</OutDir>
+    <IntDir>.\Debug\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\Release\</OutDir>
+    <IntDir>.\Release\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <MinimalRebuild>true</MinimalRebuild>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\Debug\</AssemblerListingLocation>
+      <BrowseInformation>true</BrowseInformation>
+      <PrecompiledHeaderOutputFile>.\Debug\COMTOOL.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\Debug\</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug\</ProgramDataBaseFileName>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Debug\COMTOOL.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Debug\COMTOOL.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>.\Debug\COMTOOL.exe</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\Release\</AssemblerListingLocation>
+      <BrowseInformation>true</BrowseInformation>
+      <PrecompiledHeaderOutputFile>.\Release\COMTOOL.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\Release\</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release\</ProgramDataBaseFileName>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Release\COMTOOL.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release\COMTOOL.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>.\Release\COMTOOL.exe</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="COMTOOL.cpp" />
+    <ClCompile Include="COMTOOLDlg.cpp" />
+    <ClCompile Include="MyHelpDlg.cpp" />
+    <ClCompile Include="SerialPort.cpp" />
+    <ClCompile Include="StdAfx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="COMTOOL.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="COMTOOL.h" />
+    <ClInclude Include="COMTOOLDlg.h" />
+    <ClInclude Include="define.h" />
+    <ClInclude Include="global.h" />
+    <ClInclude Include="MAVLINK\checksum.h" />
+    <ClInclude Include="MAVLINK\common\common.h" />
+    <ClInclude Include="MAVLINK\common\mavlink.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_actuator_control_target.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_adsb_vehicle.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_altitude.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_attitude.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_attitude_quaternion.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_attitude_quaternion_cov.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_attitude_target.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_att_pos_mocap.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_auth_key.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_autopilot_version.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_battery_status.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_camera_trigger.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_change_operator_control.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_change_operator_control_ack.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_collision.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_command_ack.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_command_int.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_command_long.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_control_system_state.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_data_stream.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_data_transmission_handshake.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_debug.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_debug_vect.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_distance_sensor.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_encapsulated_data.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_estimator_status.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_extended_sys_state.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_file_transfer_protocol.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_follow_target.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_global_position_int.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_global_position_int_cov.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_global_vision_position_estimate.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_gps2_raw.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_gps2_rtk.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_gps_global_origin.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_gps_inject_data.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_gps_input.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_gps_raw_int.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_gps_rtcm_data.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_gps_rtk.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_gps_status.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_heartbeat.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_highres_imu.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_high_latency.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_hil_actuator_controls.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_hil_controls.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_hil_gps.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_hil_optical_flow.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_hil_rc_inputs_raw.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_hil_sensor.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_hil_state.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_hil_state_quaternion.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_home_position.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_landing_target.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_local_position_ned.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_local_position_ned_cov.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_local_position_ned_system_global_offset.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_log_data.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_log_entry.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_log_erase.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_log_request_data.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_log_request_end.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_log_request_list.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_manual_control.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_manual_setpoint.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_memory_vect.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_message_interval.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_mission_ack.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_mission_clear_all.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_mission_count.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_mission_current.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_mission_item.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_mission_item_int.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_mission_item_reached.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_mission_request.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_mission_request_int.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_mission_request_list.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_mission_request_partial_list.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_mission_set_current.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_mission_write_partial_list.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_named_value_float.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_named_value_int.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_nav_controller_output.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_optical_flow.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_optical_flow_rad.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_param_map_rc.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_param_request_list.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_param_request_read.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_param_set.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_param_value.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_ping.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_position_target_global_int.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_position_target_local_ned.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_power_status.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_radio_status.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_raw_imu.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_raw_pressure.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_rc_channels.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_rc_channels_override.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_rc_channels_raw.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_rc_channels_scaled.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_request_data_stream.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_resource_request.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_safety_allowed_area.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_safety_set_allowed_area.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_scaled_imu.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_scaled_imu2.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_scaled_imu3.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_scaled_pressure.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_scaled_pressure2.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_scaled_pressure3.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_serial_control.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_servo_output_raw.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_set_actuator_control_target.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_set_attitude_target.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_set_gps_global_origin.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_set_home_position.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_set_mode.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_set_position_target_global_int.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_set_position_target_local_ned.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_sim_state.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_statustext.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_system_time.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_sys_status.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_terrain_check.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_terrain_data.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_terrain_report.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_terrain_request.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_timesync.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_v2_extension.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_vfr_hud.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_vibration.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_vicon_position_estimate.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_vision_position_estimate.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_vision_speed_estimate.h" />
+    <ClInclude Include="MAVLINK\common\mavlink_msg_wind_cov.h" />
+    <ClInclude Include="MAVLINK\common\testsuite.h" />
+    <ClInclude Include="MAVLINK\common\version.h" />
+    <ClInclude Include="MAVLINK\mavlink_conversions.h" />
+    <ClInclude Include="MAVLINK\mavlink_helpers.h" />
+    <ClInclude Include="MAVLINK\mavlink_types.h" />
+    <ClInclude Include="MAVLINK\protocol.h" />
+    <ClInclude Include="mavlink_avoid_errors.h" />
+    <ClInclude Include="MyHelpDlg.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="SerialPort.h" />
+    <ClInclude Include="StdAfx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\bitmap1.bmp" />
+    <Image Include="res\CHD.ICO" />
+    <Image Include="res\COMTOOL.ico" />
+    <Image Include="res\ICON_NOT.ICO" />
+    <Image Include="res\ICON_ON.ICO" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="res\COMTOOL.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MAVLINK\mavlink_helpers.h~RF1040c72.TMP" />
+    <None Include="MAVLINK\mavlink_helpers.h~RF105b698.TMP" />
+    <None Include="MAVLINK\mavlink_helpers.h~RF1343435.TMP" />
+    <None Include="MAVLINK\mavlink_helpers.h~RF1500d1d.TMP" />
+    <None Include="MAVLINK\mavlink_helpers.h~RFb1a21f.TMP" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="COMTOOL.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
