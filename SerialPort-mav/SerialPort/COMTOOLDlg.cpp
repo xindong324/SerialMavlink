@@ -23,6 +23,8 @@ CString Parity[]={_T("None"),_T("Odd"),_T("Even"),_T("Mark"),_T("Space")};
 int DataBits[]={5,6,7,8};
 int StopBits[]={1,2};
 
+uint8_t* sendHeartBeat(int MoveDirection);
+
 extern int m_nComArray[20];
 char ChD[2]={-1,-1};///用于暂存汉字的数组
 bool SendByEnter = FALSE;
@@ -50,6 +52,9 @@ protected:
 	//{{AFX_MSG(CAboutDlg)
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
+	// // 打包mavlink消息,MoveDirection为移动方向  1 前 2后 3左 4 又
+	//uint8_t* sendHeartBeat();
 };
 
 CAboutDlg::CAboutDlg() : CDialog(CAboutDlg::IDD)
@@ -931,4 +936,107 @@ void CCOMTOOLDlg::OnButtonHelp() ///帮助文档
 	GetDlgItem(IDC_SendEdit)->SetFocus();
 	CMyHelpDlg dlg;
 	dlg.DoModal();
+}
+
+
+// // 打包mavlink消息,MoveDirection为移动方向  1 前 2后 3左 4 又
+//uint8_t* CAboutDlg::sendHeartBeat()
+//{
+	//mavlink_message_t msgSend = { 0 };
+	//uint8_t base_mode = MAV_MODE_FLAG_CUSTOM_MODE_ENABLED;
+	//uint8_t system_status = MAV_STATE_ACTIVE;
+	//uint32_t custom_mode = MAV_MODE_FLAG_STABILIZE_ENABLED;
+	//uint8_t *cse;
+	////    // work out the base_mode. This value is not very useful
+	////    // for APM, but we calculate it as best we can so a generic
+	////    // MAVLink enabled ground station can work out something about
+	////    // what the MAV is up to. The actual bit values are highly
+	////    // ambiguous for most of the APM flight modes. In practice, you
+	////    // only get useful information from the custom_mode, which maps to
+	////    // the APM flight mode and has a well defined meaning in the
+	////    // ArduPlane documentation
+	//base_mode = MAV_MODE_FLAG_STABILIZE_ENABLED;
+	////    switch (control_mode) {
+	////    case AUTO:
+	////    case RTL:
+	////    case LOITER:
+	////    case GUIDED:
+	////    case CIRCLE:
+	////        base_mode |= MAV_MODE_FLAG_GUIDED_ENABLED;
+	////        // note that MAV_MODE_FLAG_AUTO_ENABLED does not match what
+	////        // APM does in any mode, as that is defined as "system finds its own goal
+	////        // positions", which APM does not currently do
+	////        break;
+	////    }
+	////    // all modes except INITIALISING have some form of manual
+	////    // override if stick mixing is enabled
+	////    base_mode |= MAV_MODE_FLAG_MANUAL_INPUT_ENABLED;
+	////#if HIL_MODE != HIL_MODE_DISABLED
+	////    base_mode |= MAV_MODE_FLAG_HIL_ENABLED;
+	////#endif
+	////    // we are armed if we are not initialising
+	////    if (0){//motors.armed()) {
+	////        base_mode |= MAV_MODE_FLAG_SAFETY_ARMED;
+	////    }
+	////    // indicate we have set a custom mode
+	//base_mode |= MAV_MODE_FLAG_CUSTOM_MODE_ENABLED;
+	//////    dxxmavlink_msg_heartbeat_send(
+	//////        chan,
+	//////        MAV_TYPE_QUADROTOR,
+	//////        MAV_AUTOPILOT_ARDUPILOTMEGA,
+	//////        base_mode,
+	//////        custom_mode,
+	//////        system_status);
+	////        
+	//mavlink_msg_heartbeat_pack(
+	//	1,
+	//	0,
+	//	&msgSend,
+	//	MAV_TYPE_QUADROTOR,
+	//	MAV_AUTOPILOT_ARDUPILOTMEGA,
+	//	base_mode,
+	//	custom_mode,
+	//	system_status);
+	////        byte b[sizeof(msgSend)];
+	////       // memcpy(b,&msgSend,sizeof(msgSend));
+	////       // Serial1.write(b,sizeof(msgSend));
+	////       // delay(500);
+	////        //memcpy(cse,msgSend, strlen(msgSend));
+	//mavlink_msg_to_send_buffer(cse, &msgSend);
+	//return nullptr;
+//}
+
+
+// 打包mavlink消息，movedirection为移动方向
+uint8_t* sendHeartBeat(int MoveDirection)
+{
+	mavlink_message_t msgSend = { 0 };
+	uint8_t base_mode = MAV_MODE_FLAG_CUSTOM_MODE_ENABLED;
+	uint8_t system_status = MAV_STATE_ACTIVE;
+	uint32_t custom_mode = MAV_MODE_FLAG_STABILIZE_ENABLED;
+	uint8_t *cse;
+	//    // work out the base_mode. This value is not very useful
+	//    // for APM, but we calculate it as best we can so a generic
+	//    // MAVLink enabled ground station can work out something about
+	//    // what the MAV is up to. The actual bit values are highly
+	//    // ambiguous for most of the APM flight modes. In practice, you
+	//    // only get useful information from the custom_mode, which maps to
+	//    // the APM flight mode and has a well defined meaning in the
+	//    // ArduPlane documentation
+	base_mode = MAV_MODE_FLAG_STABILIZE_ENABLED;
+	base_mode |= MAV_MODE_FLAG_CUSTOM_MODE_ENABLED;
+       
+	mavlink_msg_heartbeat_pack(
+		1,
+		0,
+		&msgSend,
+		MAV_TYPE_QUADROTOR,
+		MAV_AUTOPILOT_ARDUPILOTMEGA,
+		base_mode,
+		custom_mode,
+		system_status);
+
+	mavlink_msg_to_send_buffer(cse, &msgSend);
+	return cse;
+	
 }
