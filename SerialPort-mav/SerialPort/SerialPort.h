@@ -44,7 +44,7 @@
 #define WM_COMM_RXFLAG_DETECTED		WM_USER+8	// The event character was received and placed in the input buffer.  
 #define WM_COMM_TXEMPTY_DETECTED	WM_USER+9	// The last character in the output buffer was sent.  
 
-#define MaxSerialPortNum 20   ///有效的串口总个数，不是串口的号 //add by itas109 2014-01-09
+#define MaxSerialPortNum 40   ///有效的串口总个数，不是串口的号 //add by itas109 2014-01-09
 class CSerialPort
 {														 
 public:

@@ -119,6 +119,8 @@ protected:
 
 
 	
+public:
+	afx_msg void OnBnClickedCheck1();
 };
 
 //{{AFX_INSERT_LOCATION}}

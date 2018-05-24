@@ -23,7 +23,8 @@ CString Parity[]={_T("None"),_T("Odd"),_T("Even"),_T("Mark"),_T("Space")};
 int DataBits[]={5,6,7,8};
 int StopBits[]={1,2};
 
-uint8_t* sendHeartBeat(int MoveDirection);
+
+int sendHeartBeat(int MoveDirection, byte* cse);
 
 extern int m_nComArray[20];
 char ChD[2]={-1,-1};///用于暂存汉字的数组
@@ -184,6 +185,7 @@ BEGIN_MESSAGE_MAP(CCOMTOOLDlg, CDialog)
 	ON_BN_CLICKED(IDC_CHECK_ADD_ENTER, OnCheckAddEnter)
 	ON_BN_CLICKED(IDC_BUTTON_HELP, OnButtonHelp)
 	//}}AFX_MSG_MAP
+	ON_BN_CLICKED(IDC_CHECK1, &CCOMTOOLDlg::OnBnClickedCheck1)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -437,6 +439,7 @@ void CCOMTOOLDlg::OnBAutoSend() ///自动发送复选框
 void CCOMTOOLDlg::OnOpenClose() ///打开/关闭串口按钮
 {
 	// TODO: Add your control notification handler code here
+	
 	GetDlgItem(IDC_SendEdit)->SetFocus();
 	CString temp;
 	m_OpenCloseCtrl.GetWindowText(temp);///获取按钮的文本
@@ -549,17 +552,28 @@ void CCOMTOOLDlg::OnTimer(UINT nIDEvent)  ///自动发送
 {
 	// TODO: Add your message handler code here and/or call default
 	UpdateData(true);
-	CString temp;
-	temp=m_strSend;
-	if(m_bHexS)///十六进制发送
-		temp=ChangeCharstr2Hexstr(temp);
-	if(m_bAddEnter)
-		temp=m_strSend+'\n';
-	m_SerialPort.WriteToPort(temp.GetBuffer(temp.GetLength()),temp.GetLength());
-	m_nSendBytes+=temp.GetLength();
-	m_strSendBytes.Format("TX:%d",m_nSendBytes);///TX计数
-	m_ctrlSendBytes.SetWindowText(m_strSendBytes);
-	//UpdateData(false);
+	if (BST_CHECKED == IsDlgButtonChecked(IDC_CHECK1)) {
+		byte cse[sizeof(mavlink_message_t)];
+		int len = sendHeartBeat(1,cse);
+		len = len + MAVLINK_NUM_NON_PAYLOAD_BYTES;
+		m_SerialPort.WriteToPort(cse, len);
+		GetDlgItem(IDC_MAV)->SetWindowText("Sending");
+	}
+	else
+	{
+		CString temp;
+		temp = m_strSend;
+		if (m_bHexS)///十六进制发送
+			temp = ChangeCharstr2Hexstr(temp);
+		if (m_bAddEnter)
+			temp = m_strSend + '\n';
+		m_SerialPort.WriteToPort(temp.GetBuffer(temp.GetLength()), temp.GetLength());
+		m_nSendBytes += temp.GetLength();
+		m_strSendBytes.Format("TX:%d", m_nSendBytes);///TX计数
+		m_ctrlSendBytes.SetWindowText(m_strSendBytes);
+	}
+	
+	UpdateData(false);
 	CDialog::OnTimer(nIDEvent);
 }
 
@@ -627,7 +641,7 @@ LRESULT CCOMTOOLDlg::OnReceiveChar(UINT ch, LONG port)///接收消息响应函数
 			/************************************************************************/
 		}
 	}
-
+	
 	///以下是将接收的字符加在字符串的最后，这里费时很多
 	///不过采用末尾追加的方式，相对于UpdateData来说，闪烁不是很明显。因为UpdateData是全部更新使用会比较明显。
 	//int nLen=m_ctrlReceive.GetWindowTextLength();
@@ -1008,13 +1022,13 @@ void CCOMTOOLDlg::OnButtonHelp() ///帮助文档
 
 
 // 打包mavlink消息，movedirection为移动方向
-uint8_t* sendHeartBeat(int MoveDirection)
+int sendHeartBeat(int MoveDirection,byte* cse)
 {
 	mavlink_message_t msgSend = { 0 };
 	uint8_t base_mode = MAV_MODE_FLAG_CUSTOM_MODE_ENABLED;
 	uint8_t system_status = MAV_STATE_ACTIVE;
 	uint32_t custom_mode = MAV_MODE_FLAG_STABILIZE_ENABLED;
-	uint8_t *cse;
+	
 	//    // work out the base_mode. This value is not very useful
 	//    // for APM, but we calculate it as best we can so a generic
 	//    // MAVLink enabled ground station can work out something about
@@ -1026,6 +1040,16 @@ uint8_t* sendHeartBeat(int MoveDirection)
 	base_mode = MAV_MODE_FLAG_STABILIZE_ENABLED;
 	base_mode |= MAV_MODE_FLAG_CUSTOM_MODE_ENABLED;
        
+
+	//MAVPACKED(
+	//	typedef struct __mavlink_heartbeat_t {
+	//	uint32_t custom_mode; /*< A bitfield for use for autopilot-specific flags.*/
+	//	uint8_t type; /*< Type of the MAV (quadrotor, helicopter, etc., up to 15 types, defined in MAV_TYPE ENUM)*/
+	//	uint8_t autopilot; /*< Autopilot type / class. defined in MAV_AUTOPILOT ENUM*/
+	//	uint8_t base_mode; /*< System mode bitfield, see MAV_MODE_FLAG ENUM in mavlink/include/mavlink_types.h*/
+	//	uint8_t system_status; /*< System status flag, see MAV_STATE ENUM*/
+	//	uint8_t mavlink_version; /*< MAVLink version, not writable by user, gets added by protocol because of magic data type: uint8_t_mavlink_version*/
+	//}) mavlink_heartbeat_t;
 	mavlink_msg_heartbeat_pack(
 		1,
 		0,
@@ -1035,8 +1059,16 @@ uint8_t* sendHeartBeat(int MoveDirection)
 		base_mode,
 		custom_mode,
 		system_status);
-
+	//byte cse[sizeof(msgSend)];
+	memcpy(cse, &msgSend, sizeof(msgSend));
 	mavlink_msg_to_send_buffer(cse, &msgSend);
-	return cse;
+	return msgSend.len;
 	
+}
+
+
+void CCOMTOOLDlg::OnBnClickedCheck1()
+{
+	// TODO: 在此添加控件通知处理程序代码
+
 }

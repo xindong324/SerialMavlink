@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Developer Studio generated include file.
-// Used by COMTOOL.rc
+// Microsoft Visual C++ 生成的包含文件。
+// 供 COMTOOL.rc 使用
 //
 #define IDM_ABOUTBOX                    0x0010
 #define IDD_ABOUTBOX                    100
@@ -44,6 +44,9 @@
 #define IDC_BUTTON_SEND_KEY             1031
 #define IDC_CHECK_ADD_ENTER             1032
 #define IDC_BUTTON_HELP                 1033
+#define IDC_CHECK1                      1034
+#define IDC_MAVSTATE                    1036
+#define IDC_MAV                         1037
 #define IDC_MENU_ABOUT                  32771
 #define ID_MENU_SEND_NORMAL             32773
 #define ID_MENU_SEND_ENTER              32774
@@ -52,9 +55,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        140
+#define _APS_NEXT_RESOURCE_VALUE        141
 #define _APS_NEXT_COMMAND_VALUE         32775
-#define _APS_NEXT_CONTROL_VALUE         1034
+#define _APS_NEXT_CONTROL_VALUE         1038
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
