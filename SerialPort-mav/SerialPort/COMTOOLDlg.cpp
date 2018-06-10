@@ -1029,27 +1029,12 @@ int sendHeartBeat(int MoveDirection,byte* cse)
 	uint8_t system_status = MAV_STATE_ACTIVE;
 	uint32_t custom_mode = MAV_MODE_FLAG_STABILIZE_ENABLED;
 	
-	//    // work out the base_mode. This value is not very useful
-	//    // for APM, but we calculate it as best we can so a generic
-	//    // MAVLink enabled ground station can work out something about
-	//    // what the MAV is up to. The actual bit values are highly
-	//    // ambiguous for most of the APM flight modes. In practice, you
-	//    // only get useful information from the custom_mode, which maps to
-	//    // the APM flight mode and has a well defined meaning in the
-	//    // ArduPlane documentation
+
 	base_mode = MAV_MODE_FLAG_STABILIZE_ENABLED;
 	base_mode |= MAV_MODE_FLAG_CUSTOM_MODE_ENABLED;
        
 
-	//MAVPACKED(
-	//	typedef struct __mavlink_heartbeat_t {
-	//	uint32_t custom_mode; /*< A bitfield for use for autopilot-specific flags.*/
-	//	uint8_t type; /*< Type of the MAV (quadrotor, helicopter, etc., up to 15 types, defined in MAV_TYPE ENUM)*/
-	//	uint8_t autopilot; /*< Autopilot type / class. defined in MAV_AUTOPILOT ENUM*/
-	//	uint8_t base_mode; /*< System mode bitfield, see MAV_MODE_FLAG ENUM in mavlink/include/mavlink_types.h*/
-	//	uint8_t system_status; /*< System status flag, see MAV_STATE ENUM*/
-	//	uint8_t mavlink_version; /*< MAVLink version, not writable by user, gets added by protocol because of magic data type: uint8_t_mavlink_version*/
-	//}) mavlink_heartbeat_t;
+	
 	mavlink_msg_heartbeat_pack(
 		1,
 		0,

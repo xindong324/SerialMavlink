@@ -1,15 +1,2 @@
-﻿  COMTOOLDlg.cpp
-f:\dxx\fwr\source\my-mav\serialport-mav\serialport\mavlink_avoid_errors.h(13): warning C4068: 未知的杂注
-f:\dxx\fwr\source\my-mav\serialport-mav\serialport\mavlink\mavlink_conversions.h(43): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-f:\dxx\fwr\source\my-mav\serialport-mav\serialport\mavlink\mavlink_conversions.h(44): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-f:\dxx\fwr\source\my-mav\serialport-mav\serialport\mavlink\mavlink_conversions.h(45): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-f:\dxx\fwr\source\my-mav\serialport-mav\serialport\mavlink\mavlink_conversions.h(46): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-f:\dxx\fwr\source\my-mav\serialport-mav\serialport\mavlink\mavlink_conversions.h(47): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-f:\dxx\fwr\source\my-mav\serialport-mav\serialport\mavlink\mavlink_conversions.h(48): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-f:\dxx\fwr\source\my-mav\serialport-mav\serialport\mavlink\mavlink_conversions.h(49): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-f:\dxx\fwr\source\my-mav\serialport-mav\serialport\mavlink\mavlink_conversions.h(50): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-f:\dxx\fwr\source\my-mav\serialport-mav\serialport\mavlink\mavlink_conversions.h(51): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-f:\dxx\fwr\source\my-mav\serialport-mav\serialport\mavlink\mavlink_conversions.h(64): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-COMTOOLDlg.cpp(310): warning C4800: “UINT”: 将值强制为布尔值“true”或“false”(性能警告)
-  COMTOOL.vcxproj -> F:\DXX\fwr\Source\My-mav\SerialPort-mav\SerialPort\.\Debug\COMTOOL.exe
+﻿  COMTOOL.vcxproj -> F:\DXX\fwr\Source\My-mav\SerialPort-mav\SerialPort\.\Debug\COMTOOL.exe
   COMTOOL.vcxproj -> .\Debug\COMTOOL.pdb (Full PDB)
