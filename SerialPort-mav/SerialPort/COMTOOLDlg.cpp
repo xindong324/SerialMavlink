@@ -24,7 +24,7 @@ int DataBits[]={5,6,7,8};
 int StopBits[]={1,2};
 
 
-int sendHeartBeat(int MoveDirection, byte* cse);
+int sendHeartBeat(uint8_t MoveDirection, byte* cse);
 
 extern int m_nComArray[20];
 char ChD[2]={-1,-1};///用于暂存汉字的数组
@@ -554,7 +554,7 @@ void CCOMTOOLDlg::OnTimer(UINT nIDEvent)  ///自动发送
 	UpdateData(true);
 	if (BST_CHECKED == IsDlgButtonChecked(IDC_CHECK1)) {
 		byte cse[sizeof(mavlink_message_t)];
-		int len = sendHeartBeat(1,cse);
+		int len = sendHeartBeat(0x01,cse);
 		len = len + MAVLINK_NUM_NON_PAYLOAD_BYTES;
 		m_SerialPort.WriteToPort(cse, len);
 		GetDlgItem(IDC_MAV)->SetWindowText("Sending");
@@ -1022,11 +1022,17 @@ void CCOMTOOLDlg::OnButtonHelp() ///帮助文档
 
 
 // 打包mavlink消息，movedirection为移动方向
-int sendHeartBeat(int MoveDirection,byte* cse)
+// 前 0010 0000
+//后 0001 0000
+//左 0000 1000
+//右 0000 0100
+//上 0000 0010
+//下 0000 0001
+int sendHeartBeat(uint8_t MoveDirection,byte* cse)
 {
 	mavlink_message_t msgSend = { 0 };
 	uint8_t base_mode = MAV_MODE_FLAG_CUSTOM_MODE_ENABLED;
-	uint8_t system_status = MAV_STATE_ACTIVE;
+	uint8_t system_status = MoveDirection;
 	uint32_t custom_mode = MAV_MODE_FLAG_STABILIZE_ENABLED;
 	
 
