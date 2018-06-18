@@ -136,6 +136,7 @@
     <ClCompile Include="COMTOOL.cpp" />
     <ClCompile Include="COMTOOLDlg.cpp" />
     <ClCompile Include="MyHelpDlg.cpp" />
+    <ClCompile Include="SendMavlink.cpp" />
     <ClCompile Include="SerialPort.cpp" />
     <ClCompile Include="StdAfx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -293,6 +294,9 @@
     <ClInclude Include="MAVLINK\common\mavlink_msg_wind_cov.h" />
     <ClInclude Include="MAVLINK\common\testsuite.h" />
     <ClInclude Include="MAVLINK\common\version.h" />
+    <ClInclude Include="MAVLINK\define.h" />
+    <ClInclude Include="MAVLINK\global.h" />
+    <ClInclude Include="MAVLINK\mavlink_avoid_errors.h" />
     <ClInclude Include="MAVLINK\mavlink_conversions.h" />
     <ClInclude Include="MAVLINK\mavlink_helpers.h" />
     <ClInclude Include="MAVLINK\mavlink_types.h" />
@@ -300,6 +304,7 @@
     <ClInclude Include="mavlink_avoid_errors.h" />
     <ClInclude Include="MyHelpDlg.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="SendMavlink.h" />
     <ClInclude Include="SerialPort.h" />
     <ClInclude Include="StdAfx.h" />
   </ItemGroup>

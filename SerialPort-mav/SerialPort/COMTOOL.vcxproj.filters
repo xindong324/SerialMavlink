@@ -30,6 +30,9 @@
     <ClCompile Include="StdAfx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SendMavlink.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="COMTOOL.rc">
@@ -497,6 +500,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MAVLINK\common\version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MAVLINK\define.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MAVLINK\global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MAVLINK\mavlink_avoid_errors.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SendMavlink.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

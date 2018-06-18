@@ -5,9 +5,9 @@
 #include "COMTOOL.h"
 #include "COMTOOLDlg.h"
 #include "MyHelpDlg.h"
-#include"mavlink_avoid_errors.h"
-#include"MAVLINK/common/mavlink.h"
 
+///////////////////////////mavlink////////////////////////////头文件引用/////////////////////////////
+#include "SendMavlink.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -24,7 +24,7 @@ int DataBits[]={5,6,7,8};
 int StopBits[]={1,2};
 
 
-int sendHeartBeat(uint8_t MoveDirection, byte* cse);
+//int sendHeartBeat(uint32_t MoveDirection, byte* cse);
 
 extern int m_nComArray[20];
 char ChD[2]={-1,-1};///用于暂存汉字的数组
@@ -554,7 +554,8 @@ void CCOMTOOLDlg::OnTimer(UINT nIDEvent)  ///自动发送
 	UpdateData(true);
 	if (BST_CHECKED == IsDlgButtonChecked(IDC_CHECK1)) {
 		byte cse[sizeof(mavlink_message_t)];
-		int len = sendHeartBeat(0x01,cse);
+		SendMavlink send;
+		int len = send.sendHeartBeat(0x01,cse);
 		len = len + MAVLINK_NUM_NON_PAYLOAD_BYTES;
 		m_SerialPort.WriteToPort(cse, len);
 		GetDlgItem(IDC_MAV)->SetWindowText("Sending");
@@ -1021,41 +1022,36 @@ void CCOMTOOLDlg::OnButtonHelp() ///帮助文档
 //}
 
 
-// 打包mavlink消息，movedirection为移动方向
-// 前 0010 0000
-//后 0001 0000
-//左 0000 1000
-//右 0000 0100
-//上 0000 0010
-//下 0000 0001
-int sendHeartBeat(uint8_t MoveDirection,byte* cse)
-{
-	mavlink_message_t msgSend = { 0 };
-	uint8_t base_mode = MAV_MODE_FLAG_CUSTOM_MODE_ENABLED;
-	uint8_t system_status = MoveDirection;
-	uint32_t custom_mode = MAV_MODE_FLAG_STABILIZE_ENABLED;
-	
-
-	base_mode = MAV_MODE_FLAG_STABILIZE_ENABLED;
-	base_mode |= MAV_MODE_FLAG_CUSTOM_MODE_ENABLED;
-       
-
-	
-	mavlink_msg_heartbeat_pack(
-		1,
-		0,
-		&msgSend,
-		MAV_TYPE_QUADROTOR,
-		MAV_AUTOPILOT_ARDUPILOTMEGA,
-		base_mode,
-		custom_mode,
-		system_status);
-	//byte cse[sizeof(msgSend)];
-	memcpy(cse, &msgSend, sizeof(msgSend));
-	mavlink_msg_to_send_buffer(cse, &msgSend);
-	return msgSend.len;
-	
-}
+//// 打包mavlink消息，movedirection为移动方向
+//// 前(0000 0000 0011 0000 0000 0000 0000 0000)
+////后 0000 0000 0000 0011 0000 0000 0000 0000
+////左 0000 0000 0000 0000 0011 0000 0000 0000
+////右 0000 0000 0000 0000 0000 0011 0000 0000
+//
+////上 0000 0000 0000 0000 0000 0000 0011 0000
+////下 0000 0000 0000 0000 0000 0000 0000 0011
+//int sendHeartBeat(uint32_t MoveDirection,byte* cse)
+//{
+//	mavlink_message_t msgSend = { 0 };
+//	uint8_t base_mode = MAV_MODE_FLAG_CUSTOM_MODE_ENABLED;
+//	uint8_t system_status = 0;
+//	uint32_t custom_mode = MoveDirection;
+//	
+//	mavlink_msg_heartbeat_pack(
+//		1,
+//		0,
+//		&msgSend,
+//		MAV_TYPE_QUADROTOR,
+//		MAV_AUTOPILOT_ARDUPILOTMEGA,
+//		base_mode,
+//		custom_mode,
+//		system_status);
+//	//byte cse[sizeof(msgSend)];
+//	memcpy(cse, &msgSend, sizeof(msgSend));
+//	mavlink_msg_to_send_buffer(cse, &msgSend);
+//	return msgSend.len;
+//	
+//}
 
 
 void CCOMTOOLDlg::OnBnClickedCheck1()
